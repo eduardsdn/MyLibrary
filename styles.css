@@ -1,0 +1,88 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: rgb(255, 255, 255);
+}
+
+.header {
+    margin-top: 100px;
+    border: solid;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+.btnHolder {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#addBookBtn {
+    padding: 20px;
+    width: 20%;
+    border-radius: 15px;
+    border-style: inherit;
+}
+
+.cardHolder {
+    width: 80%;
+    height: 100%;
+    /* border: solid; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 50px;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    /* grid-auto-flow: column; */
+    justify-content: space-between;
+    
+}
+
+.card {
+    border: solid;
+    height: 379px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bookInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+
+}
+
+.bookInfo .title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+}
+
+.bookInfo .author {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+}
+
+.bookInfo .year {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+}
