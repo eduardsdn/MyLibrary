@@ -5,22 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="pictures/1f4da.png">
     <title>MyLibrary</title>
 </head>
 <body>
     <div class="header">
-        <h1>Find a book</h1>
-        <input type="text">
+        <h1>Welcome to the library!<span>&#128218;</span>Press the button below to place a book on the shelf. Enjoy!</h1>
+        
     </div>
+    
 
     <div class="btnHolder">
-        <button id="addBookBtn">Add</button>
+        <button id="addBookBtn"><span>&#10133;</span>Add a book<span>&#10133;</span></button>
     </div>
 
     <div class="cardHolder">
     
         <div class="card">
-            <div class="bookmark"></div>
+            <div class="cardTop">
+                <div class="bookmark"></div>
+                <button id="closeBtn">X</button>
+            </div>
             <div class="bookInfo">
                 <p class="title">Crime and Punisment</p>
                 <p class="author">Fedor Dostoyevsky</p>
@@ -32,13 +37,126 @@
                 <span class="slider round"></span>
               </label>
         </div>
+
+        <div class="card">
+            <div class="cardTop">
+                <div class="bookmark"></div>
+                <button id="closeBtn">X</button>
+            </div>
+            <div class="bookInfo">
+                <p class="title">Crime and Punisment</p>
+                <p class="author">Fedor Dostoyevsky</p>
+                <p class="year">1866</p>
+            </div>
+            <p class="markAsRead">Mark as Read</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+        </div>
+
+        <div class="card">
+            <div class="cardTop">
+                <div class="bookmark"></div>
+                <button id="closeBtn">X</button>
+            </div>
+            <div class="bookInfo">
+                <p class="title">Crime and Punisment</p>
+                <p class="author">Fedor Dostoyevsky</p>
+                <p class="year">1866</p>
+            </div>
+            <p class="markAsRead">Mark as Read</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+        </div>
+
+        <div class="card">
+            <div class="cardTop">
+                <div class="bookmark"></div>
+                <button id="closeBtn">X</button>
+            </div>
+            <div class="bookInfo">
+                <p class="title">Crime and Punisment</p>
+                <p class="author">Fedor Dostoyevsky</p>
+                <p class="year">1866</p>
+            </div>
+            <p class="markAsRead">Mark as Read</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+        </div>
+
+        <div class="card">
+            <div class="cardTop">
+                <div class="bookmark"></div>
+                <button id="closeBtn">X</button>
+            </div>
+            <div class="bookInfo">
+                <p class="title">Crime and Punisment</p>
+                <p class="author">Fedor Dostoyevsky</p>
+                <p class="year">1866</p>
+            </div>
+            <p class="markAsRead">Mark as Read</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+        </div>
+
     </div>
     
+    <div class="popUp">
+
+        <h1>Please enter a new book</h1>
+
+        <form class="newBookForm" action="" method="post">
+
+            <div class="nameInput">
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+            </div>
+
+            
+            <div class="authorInput">
+                <label for="author">Author:</label>
+                <input type="text" id="author">
+            </div>
+
+            <div class="yearInput">
+                <label for="year">Year of publication:</label>
+                <input type="number" step="1" value="2022" id="year"/>
+            </div>
+            
+            
+            <div class="isReadInput">
+                <p id="isReadTitle">Have you read this book?</p>
+
+                <div class="isReadOptions">
+
+                    <div class="yesOption">
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="yes">
+                    </div>
+
+                    <div class="noOption">
+                        <label for="no">No</label>
+                        <input type="radio" id="no">
+                    </div>
+                    
+                </div>
+            </div>
+
+            
+            <div class="postBtnContainer">
+                <input type="submit" value="Add book" class="postBtn">
+            </div>
+        </form>
+        
+    </div>
     
-
-
-
-
     <script src="library.js"></script>
 </body>
 </html>
