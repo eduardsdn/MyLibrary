@@ -213,26 +213,31 @@ input:checked + .slider:before {
 /* ---------POP-UP FORM STYLING---------- */
 .popUp{
     display: flex;
-    display: none;
+    /* display: none; */
     flex-direction: column;
     width: 500px;
     height: 500px;
     border: solid;
     position: fixed;
     top:25%;
-    background-color: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 15px;
     /* border-style: inherit; */
-    background-color: #0483aa;
+    background-color:#fee6e3;
+    /* color: aliceblue; */
+    border-color: black;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
 }
 
 #name, #author, #year {
-    background-color: #fee6e3;
-    border-style: inherit;
+    background-color:#0483aa;
+    /* border-style: inherit; */
     border-radius: 15px;
     height: 40px;
     font-size: 20px;
+    color: aliceblue;
+    border-color:#111
 }
 
 .newBookForm {
@@ -283,11 +288,33 @@ input:checked + .slider:before {
 .postBtn {
     height: 70px;
     width: 240px;
-    font-size: 30px;
+    font-size: 25px;
     border-radius: 15px;
-    border-style: inherit;
-    background-color: #fee6e3;
+    /* border-style: inherit; */
+    background-color:#0483aa;
+    color: aliceblue;
 }
+
+.popUpTop {
+    width: 100%;
+    display: flex;
+}
+
+#closeBtnPopUp {
+    position: relative;
+    left: 70px;
+    background-color: transparent;
+    border-style: inherit;
+    height: 0px;
+    font-size: 40px;
+}
+
+#closeBtnPopUp:hover {
+    color: red;
+    cursor: pointer;
+}
+
+
 /* ---------POP-UP FORM STYLING---------- */
 
 
