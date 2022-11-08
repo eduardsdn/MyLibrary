@@ -26,11 +26,16 @@ form.addEventListener('submit', function(event) {
     event.preventDefault()
     newBook = new Book(bookName, bookAuthor, bookYear, isReadValue)
     books.push(newBook)
-   
+
+
+    appendNewCard(books)
+    
     console.log(newBook)
+    console.log(books)
 })
 
-console.log(books)
+
+
 
 // ----------- HANDLING POP UP FORM -----------
 addBookBtn = document.querySelector("#addBookBtn")
@@ -50,5 +55,36 @@ popUpClose.addEventListener('click', function(){
 // ----------- HANDLING POP UP FORM -----------
 
 
+// --------- Creating new card elements from books array ---------
+
+cardHolder = document.querySelector(".cardHolder")
 
 
+function appendNewCard(books) {
+    for (let i = 0; i < books.length; i++){
+
+        const newCard = document.createElement("div")
+
+        const content = `
+        <div class="card">
+            <div class="cardTop">
+                <div class="bookmark"></div>
+                <button id="closeBtn">X</button>
+            </div>
+            <div class="bookInfo">
+                <p class="title">${books[i].title}</p>
+                <p class="author">${books[i].author}</p>
+                <p class="year">${books[i].year}</p>
+            </div>
+            <p class="markAsRead">Mark as Read</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>`
+
+        newCard.innerHTML = content
+
+        cardHolder.appendChild(newCard)
+    }
+}
