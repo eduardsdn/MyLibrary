@@ -23,14 +23,16 @@ form.addEventListener('submit', function(event) {
             break
         }
     }
+
     event.preventDefault()
+
     newBook = new Book(bookName, bookAuthor, bookYear, isReadValue)
     books.push(newBook)
 
-
-    appendNewCard(books)
     
-    console.log(newBook)
+    appendNewCard(newBook)
+    
+   
     console.log(books)
 })
 
@@ -56,35 +58,48 @@ popUpClose.addEventListener('click', function(){
 
 
 // --------- Creating new card elements from books array ---------
-
 cardHolder = document.querySelector(".cardHolder")
 
 
-function appendNewCard(books) {
-    for (let i = 0; i < books.length; i++){
+function appendNewCard(newBook) {
+    const newCard = document.createElement("div")
 
-        const newCard = document.createElement("div")
+    const content = `
+    <div class="card">
+        <div class="cardTop">
+            <div class="bookmark"></div>
+            <button id="closeBtn">X</button>
+        </div>
+        <div class="bookInfo">
+            <p class="title">${newBook.title}</p>
+            <p class="author">${newBook.author}</p>
+            <p class="year">${newBook.year}</p>
+        </div>
+        <p class="markAsRead">Mark as Read</p>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>`
 
-        const content = `
-        <div class="card">
-            <div class="cardTop">
-                <div class="bookmark"></div>
-                <button id="closeBtn">X</button>
-            </div>
-            <div class="bookInfo">
-                <p class="title">${books[i].title}</p>
-                <p class="author">${books[i].author}</p>
-                <p class="year">${books[i].year}</p>
-            </div>
-            <p class="markAsRead">Mark as Read</p>
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-        </div>`
+    newCard.innerHTML = content
 
-        newCard.innerHTML = content
-
-        cardHolder.appendChild(newCard)
+    console.log(newCard)
+    cardHolder.appendChild(newCard)
     }
-}
+
+// --------- Creating new card elements from books array ---------
+
+const cardCloseButtonS = document.querySelectorAll("#closeBtn")
+console.log(cardCloseButtonS)
+
+document.addEventListener("DOMNodeInserted", function(){
+    document.querySelectorAll("#closeBtn").forEach((cardCloseButton) => {cardCloseButton.addEventListener('click', function(event){
+        parent1 = this.parentElement
+        cardToDelete = parent1.parentElement
+        console.log(cardToDelete)
+
+
+    })
+    })
+})
