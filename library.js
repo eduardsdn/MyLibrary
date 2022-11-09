@@ -1,12 +1,16 @@
-function Book(title, author, year, isRead) {
+function Book(title, author, year, isRead, isDisplayed) {
     this.title = title
     this.author = author
     this.year = year
     this.isRead = isRead
+    this.isDisplayed = this.isDisplayed
 }
 
+// firstBook = new Book("Crime and Punishment", "Fedor Dostoyevsky", 1866, false)
 let library = []
-let form = document.querySelector(".newBookForm")
+const form = document.querySelector(".newBookForm")
+const cardHolder = document.querySelector(".cardHolder")
+
 form.addEventListener('submit', addBookToLibrary)
 
 
@@ -17,6 +21,7 @@ function addBookToLibrary(event){
     let bookYear = document.getElementById("year").value
     let isReadCheckboxes = document.querySelectorAll('input[type="checkbox"]')
     let isReadValue = null
+    let isDisplayed = false
     
     for(let i = 0; i < Array.from(isReadCheckboxes).length; i++){
         if (Array.from(isReadCheckboxes)[i].checked) {
@@ -27,22 +32,24 @@ function addBookToLibrary(event){
 
     event.preventDefault()
     
-    newBook = new Book(bookName, bookAuthor, bookYear, isReadValue)
+    newBook = new Book(bookName, bookAuthor, bookYear, isReadValue, isDisplayed)
     library.push(newBook)
 
     console.log(library)
+
+    displayBooks(library)
 }
 
+function displayBooks(library){
 
-cardHolder = document.querySelector(".cardHolder")
+    for(let i = 0; i < library.length; i++){
+        
+        if(library[i].isDisplayed === true){
+            continue
+        }
 
-
-function displayBooks(library) {
-
-    for (let i = 0; i < library.length; i++){
-
+        library[i].isDisplayed = true
         const newCard = document.createElement("div")
-
         const content = `
         <div class="card">
             <div class="cardTop">
@@ -50,30 +57,22 @@ function displayBooks(library) {
                 <button id="closeBtn">X</button>
             </div>
             <div class="bookInfo">
-                <p class="title">${books[i].title}</p>
-                <p class="author">${books[i].author}</p>
-                <p class="year">${books[i].year}</p>
+                <p class="title">${library[i].title}</p>
+                <p class="author">${library[i].author}</p>
+                <p class="year">${library[i].year}</p>
             </div>
             <p class="markAsRead">Mark as Read</p>
             <label class="switch">
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
-        </div>`
+        </div> `
 
         newCard.innerHTML = content
-
         cardHolder.appendChild(newCard)
+
     }
 }
-
-
-
-
-
-
-
-
 
 
 // ------------------ Handling buttons ------------------
@@ -83,6 +82,7 @@ document.addEventListener("DOMNodeInserted", function(){
     document.querySelectorAll("#closeBtn").forEach((cardCloseButton) => {cardCloseButton.addEventListener('click', function(event){
         parent1 = this.parentElement
         cardToDelete = parent1.parentElement
+        cardToDelete.remove()
         console.log(cardToDelete)
 
     })
