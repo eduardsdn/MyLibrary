@@ -6,7 +6,7 @@ function Book(title, author, year, isRead, isDisplayed) {
     this.isDisplayed = this.isDisplayed
 }
 
-// firstBook = new Book("Crime and Punishment", "Fedor Dostoyevsky", 1866, false)
+
 let library = []
 const form = document.querySelector(".newBookForm")
 const cardHolder = document.querySelector(".cardHolder")
@@ -52,25 +52,21 @@ function displayBooks(library){
         const newCard = document.createElement("div")
         const content = `
         <div class="card">
-            <div class="cardTop">
-                <div class="bookmark"></div>
-                <button id="closeBtn">X</button>
-            </div>
-            <div class="bookInfo">
-                <p class="title">${library[i].title}</p>
-                <p class="author">${library[i].author}</p>
-                <p class="year">${library[i].year}</p>
-            </div>
-            <p class="markAsRead">Mark as Read</p>
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-        </div> `
+        <div class="cardTop">
+            <div class="bookmark"></div>
+            <button id="closeBtn">X</button>
+        </div>
+        <div class="bookInfo">
+            <p class="title">Crime and Punisment</p>
+            <p class="author">Fedor Dostoyevsky</p>
+            <p class="year">1866</p>
+        </div>
+        <p class="markAsRead">Mark as Read</p>
+        <input type="checkbox" class="isReadCheckBox">
+    </div>`
 
         newCard.innerHTML = content
         cardHolder.appendChild(newCard)
-
     }
 }
 
@@ -89,6 +85,13 @@ document.addEventListener("DOMNodeInserted", function(){
     })
 })
 
+document.addEventListener("DOMNodeInserted", function(){
+    document.querySelectorAll(".isReadCheckBox").forEach((checkbox) => {checkbox.addEventListener('change', function(){
+        console.log("clicked")
+    })}
+    )
+})
+
 addBookBtn = document.querySelector("#addBookBtn")
 popUp = document.querySelector(".popUpHidden")
 
@@ -103,6 +106,9 @@ popUpClose.addEventListener('click', function(){
     popUp.classList.remove("popUpDisplayed")
     popUp.classList.add("popUpHidden")
 })
+
+
+    
 
 
 
